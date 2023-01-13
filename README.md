@@ -30,8 +30,8 @@ Users are able to:
 
 ### Screenshots
 
-![](../screenshots/home.png "Home page")
-![](../screenshots/men.png "Men products page")
-![](../screenshots/product.png "Single product page")
-![](../screenshots/contact.png "Contact page")
-![](../screenshots/checkout.png "Checkout page")
+![](./screenshots/home.png?raw=true "Home page")
+![](./screenshots/men.png?raw=true "Men products page")
+![](./screenshots/product.png?raw=true "Single product page")
+![](./screenshots/contact.png?raw=true "Contact page")
+![](./screenshots/checkout.png?raw=true "Checkout page")
