@@ -2,10 +2,10 @@
 
 This is a simple e-commerce website built using JavaScript, NodeJS, Express, Handlebars, and Contentful CMS.
 
-# Overview
+### Overview
 
 The website uses Contentful's CMS for storing all product information and images.
-The pages are created dynamically on the server using the handelbars templating engine and in the browser using javascript
+The pages are created dynamically on the server using the handelbars templating engine and in the browser using javascript.
 
 Users are able to:
 
@@ -27,11 +27,3 @@ Users are able to:
 - Express
 - Handlebars
 - Lightbox
-
-### Screenshots
-
-![](./screenshots/home.png?raw=true "Home page")
-![](./screenshots/men.png?raw=true "Men products page")
-![](./screenshots/product.png?raw=true "Single product page")
-![](./screenshots/contact.png?raw=true "Contact page")
-![](./screenshots/checkout.png?raw=true "Checkout page")
