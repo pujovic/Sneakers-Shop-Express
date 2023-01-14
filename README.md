@@ -2,6 +2,8 @@
 
 This is a simple e-commerce website built using JavaScript, NodeJS, Express, Handlebars, and Contentful CMS.
 
+![](./Screenshots/product.png)
+
 ### Overview
 
 The website uses Contentful's CMS for storing all product information and images.
