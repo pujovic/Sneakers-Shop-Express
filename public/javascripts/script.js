@@ -2,8 +2,8 @@
 
 //contentful cms
 const client = contentful.createClient({
-  space: "sp4hyiwgcvy0", //this can be hidden using in an environment variable using a .env file
-  accessToken: "O31MLp09tTfPmEKVNgdDhi4MPJhm_c9eagDSf4JjX8g", //this can be hidden using in an environment variable using a .env file
+  space: "sp4hyiwgcvy0",
+  accessToken: "O31MLp09tTfPmEKVNgdDhi4MPJhm_c9eagDSf4JjX8g",
 });
 
 //assigning dom elemets to variables
