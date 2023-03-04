@@ -1,11 +1,5 @@
 "use strict";
 
-//contentful cms
-const client = contentful.createClient({
-  space: "sp4hyiwgcvy0",
-  accessToken: "O31MLp09tTfPmEKVNgdDhi4MPJhm_c9eagDSf4JjX8g",
-});
-
 //assigning dom elemets to variables
 const cartBtn = document.getElementById("cart");
 const hamburgerBtn = document.getElementById("hamburger-btn");
@@ -146,42 +140,83 @@ if (orderForm) {
   });
 }
 
-//getting the products from CMS
+//getting the products from database
 class Products {
   async getProducts() {
     try {
-      let contentful = await client.getEntries({
-        content_type: "sneakerShop",
-      });
-      let products = contentful.items;
-      products = products.map((item) => {
-        const { name, price, discription, discount, hasDiscount } = item.fields;
-        const { id } = item.sys;
-        const images = item.fields.images;
-        const tag = item.metadata.tags[0].sys.id;
+      const response = await fetch("/product-data.json");
+      if (!response.ok) {
+        throw new Error("Something went wrong!");
+      }
+      const data = await response.json();
+
+      const productsW = data.women.map((item) => {
+        const {
+          id,
+          name,
+          price,
+          description,
+          hasDiscount,
+          discount,
+          images,
+          tag = "women",
+        } = item;
 
         return {
           name,
           price,
           id,
-          discription,
+          description,
           images,
           discount,
           hasDiscount,
           tag,
         };
       });
+
+      const productsM = data.men.map((item) => {
+        const {
+          id,
+          name,
+          price,
+          description,
+          hasDiscount,
+          discount,
+          images,
+          tag = "men",
+        } = item;
+
+        return {
+          name,
+          price,
+          id,
+          description,
+          discount,
+          images,
+          hasDiscount,
+          tag,
+        };
+      });
+
+      const products = productsW.concat(productsM);
       return products;
     } catch (error) {
-      console.log(error);
+      return { error: error, message: "Database error!" };
     }
   }
+
   async getSingleProduct(id) {
     try {
-      let singleProduct = await client.getEntry(id);
+      let singleProduct;
+      const products = await this.getProducts();
+      products.forEach((product) => {
+        if (product.id === +id) {
+          singleProduct = product;
+        }
+      });
       return singleProduct;
     } catch (error) {
-      console.log(error);
+      throw new Error("Product id error!");
     }
   }
 }
@@ -192,6 +227,11 @@ class UI {
   displayProducts(products, tag) {
     let result = "";
     let discountArr = [];
+
+    if (products.error) {
+      productSection.innerHTML = `<h1>${products.message}</h1>`;
+    }
+
     products.forEach((product) => {
       let price;
       let discountVis;
@@ -210,7 +250,7 @@ class UI {
               <a href="${url + "/" + product.id}">
                 <img
                   id="product-image"
-                  src=${product.images[0].fields.file.url}?q=10&fit=pad
+                  src=${product.images}?q=10&fit=pad
                   alt="Sneaker image"
                 />
               </a>
@@ -230,7 +270,7 @@ class UI {
       productDivArr.forEach((product) => {
         const priceDiscountChildren = product.children["price-and-discount"];
         discountArr.forEach((element) => {
-          if (product.dataset.id === element.id) {
+          if (+product.dataset.id === element.id) {
             priceDiscountChildren.children["price"].innerText += element.price;
             priceDiscountChildren.children["discount"].style.visibility =
               element.vis;
@@ -246,24 +286,31 @@ class UI {
     let images = "";
     let price;
     let discountVis;
+
+    if (!entry) {
+      document.querySelector(
+        "main"
+      ).innerHTML = `<h1>Sorry, cannot find any product with this id.</h1>`;
+    }
+
     //calculating price and assigning visibility property
-    if (entry.fields.hasDiscount) {
-      price = (1 - entry.fields.discount / 100) * entry.fields.price;
+    if (entry.hasDiscount) {
+      price = (1 - entry.discount / 100) * entry.price;
       discountVis = "visible";
     } else {
-      price = entry.fields.price;
+      price = entry.price;
       discountVis = "hidden";
     }
     productPage = `
             <h3>Sneaker Company</h3>
-            <h1 id="product-name">${entry.fields.name}</h1>
-            <p id="product-discription">${entry.fields.discription}</p>
+            <h1 id="product-name">${entry.name}</h1>
+            <p id="product-discription">${entry.description}</p>
 
             <div class="price-div">
               <p id="price">$${price}</p>
-              <p id="discount" >${entry.fields.discount}%</p>
+              <p id="discount" >${entry.discount}%</p>
             </div>
-            <p id="old-price">$${entry.fields.price}</p>
+            <p id="old-price">$${entry.price}</p>
             
             <p id="size-p">Size:</p>
             <div id="sizes"></div>
@@ -280,18 +327,36 @@ class UI {
               </button>
             </div>`;
     images = `
-            <a id="product-image-link" href=${entry.fields.images[0].fields.file.url}?fit=pad data-lightbox="roadtrip">
-              <img id="product-image" src=${entry.fields.images[0].fields.file.url}?fit=pad alt="Product picture" />
+            <a id="product-image-link" href=${
+              entry.images
+            }?fit=pad data-lightbox="roadtrip">
+              <img id="product-image" src=${
+                entry.images
+              }?fit=pad alt="Product picture" />
             </a>
-            <a href=${entry.fields.images[1].fields.file.url}?fit=pad data-lightbox="roadtrip" ></a>
-            <a href=${entry.fields.images[2].fields.file.url}?fit=pad data-lightbox="roadtrip" ></a>
-            <a href=${entry.fields.images[3].fields.file.url}?fit=pad data-lightbox="roadtrip" ></a>
+            <a href=${
+              entry.images.slice(0, -1) + "2"
+            }?fit=pad data-lightbox="roadtrip" ></a>
+            <a href=${
+              entry.images.slice(0, -1) + "3"
+            }?fit=pad data-lightbox="roadtrip" ></a>
+            <a href=${
+              entry.images.slice(0, -1) + "4"
+            }?fit=pad data-lightbox="roadtrip" ></a>
             
             <div class="thumbnails">
-              <img id="product1" src=${entry.fields.images[0].fields.file.url}?&fit=pad&q=10  alt="Product picture" />
-              <img id="product2" src=${entry.fields.images[1].fields.file.url}?&fit=pad&q=10  alt="Product picture" />
-              <img id="product3" src=${entry.fields.images[2].fields.file.url}?&fit=pad&q=10  alt="Product picture" />
-              <img id="product4" src=${entry.fields.images[3].fields.file.url}?&fit=pad&q=10  alt="Product picture" />
+              <img id="product1" src=${
+                entry.images
+              }?&fit=pad&q=10  alt="Product picture" />
+              <img id="product2" src=${
+                entry.images.slice(0, -1) + "2"
+              }?&fit=pad&q=10  alt="Product picture" />
+              <img id="product3" src=${
+                entry.images.slice(0, -1) + "3"
+              }?&fit=pad&q=10  alt="Product picture" />
+              <img id="product4" src=${
+                entry.images.slice(0, -1) + "4"
+              }?&fit=pad&q=10  alt="Product picture" />
             </div>`;
     productPageDOM.innerHTML = productPage;
     imageDiv.innerHTML = images;
@@ -327,6 +392,7 @@ class UI {
     <p class="size">46</p>`;
     }
   }
+
   //render cart
   displayCart(cart) {
     cart.forEach((cartItem) => {
@@ -375,6 +441,7 @@ class UI {
       });
     });
   }
+
   //render checkout page
   displayCheckout(cart) {
     let subtotal = 0;
