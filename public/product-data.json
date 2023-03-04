@@ -1,0 +1,114 @@
+{
+  "women": [
+    {
+      "id": 1,
+      "name": "Asics Japan S PF",
+      "description": "ASICS gives a throwback to the 80s with their latest JAPAN S Pf sneakers. The shoe is inspired by heritage design but comes with new-age technology. The traditional midsole is replaced by a platform structure. The silhouette features a neutral colorway for a clean look. Classic ASICS branding of Stripes, quarter-panels and ‘ASICS’ lettering gives off nostalgic vibe.",
+      "price": 90,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/315346889702_01"
+    },
+    {
+      "id": 2,
+      "name": "Jordan Jordan Series Es",
+      "description": "Inspired by Mike's backyard battles with his older brother Larry, the Jordan Series references their legendary sibling rivalry throughout the design. The rubber sole offers more than just impressive traction—it also tells the story of how MJ came to be #23. Look for the hidden reminder to 'Swing for the Fence,' a direct quote from Larry to his little bro.",
+      "price": 85,
+      "hasDiscount": true,
+      "discount": 50,
+      "images": "https://images.footlocker.com/is/image/FLEU/315346527302_01"
+    },
+    {
+      "id": 3,
+      "name": "New Balance 327 WMNS",
+      "description": "Power your sporty spirit with the heritage-inspired style of the New Balance 327. A classic with a fresh twist, these sneakers take you to an era of innovation. Taking inspiration from the NB gems - 320, 355, and Supercomp, the suede/nylon upper is designed for long lasting breathable ease and durability. Featuring lugs for traction, the wraparound rubber outsole takes your walking comfort to the next level.",
+      "price": 105,
+      "hasDiscount": true,
+      "discount": 30,
+      "images": "https://images.footlocker.com/is/image/FLEU/315214080202_01"
+    },
+    {
+      "id": 4,
+      "name": "Nike Air Force 1 Platform",
+      "description": "Four decades and still counting! The Nike Air Force 1 PLT.AF.ORM lets you rule the streets just like it has done so for years. Elegantly comfy, the premium leather upper breaks in easily, so you can flex in style. Working with Air cushioning, the lifted foam midsole offers easy, smooth strides. Fitted with a durable and grippy rubber outsole, the Nike Air Force 1 PLT.AF.ORM delivers a time-tested look that you can sport again and again.",
+      "price": 130,
+      "hasDiscount": true,
+      "discount": 20,
+      "images": "https://images.footlocker.com/is/image/FLEU/315347021602_01"
+    },
+    {
+      "id": 5,
+      "name": "Nike Air Max 270",
+      "description": "LEGENDARY AIR GETS LIFTED.Nike's first lifestyle Air Max brings you style, comfort and big attitude in the Nike Air Max 270. The design draws inspiration from Air Max icons, showcasing Nike's greatest innovation with its large window and fresh array of colours.BenefitsThe Max Air 270 unit delivers unrivalled, all-day comfort.Woven and synthetic fabric on the upper provides a lightweight fit and airy feel.The foam midsole feels soft and comfortable.The stretchy inner sleeve and booty-like construction creates a personalised fit.Rubber on the outsole adds traction and durability.Product DetailsMesh details for an airy feelSynthetic and textile upper.Pull tabNike Air Max OriginsRevolutionary Air technology first made its way into Nike footwear in 1978. In 1987, the Air Max 1 debuted with visible Air technology in its heel, allowing fans more than just the feel of Air cushioning—suddenly they could see it. Since then, next-generation Air Max shoes have become a hit with athletes and collectors by offering striking colour combinations and reliable, lightweight cushioning.",
+      "price": 150,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/316702727104_01"
+    },
+    {
+      "id": 6,
+      "name": "Jordan 1 Zoom Air CMFT",
+      "description": "Express your love for creativity with the Jordan 1 Zoom Air CMFT. A modern take on the iconic AJ1, these classic sneakers are a piece of art. Blending synthetic and genuine leather, the upper is highly durable and comfy as you go out and about. The Zoom Air-Sole unit in the heel delivers street-ready cushioning for a light and easy stride. Offering good traction and stability, the grooved rubber outsole lets you go wherever imagination takes you in heavenly comfort. Jordan 1 Zoom Air CMFT Features: - Durable synthetics and genuine leather upper - Nike Zoom Air-Sole unit in the heel - Brushstrokes on the Swoosh and collar - Solid rubber outsole with grooves.",
+      "price": 130,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/314104824504_01"
+    }
+  ],
+  "men": [
+    {
+      "id": 7,
+      "name": "adidas Niteball 2",
+      "description": "The game of basketball lives on city streets just as much as it does in any stadium. So step out in these adidas Niteball 2.0 Shoes and showcase your baller attitude long after the sun goes down. The next evolution of hoops style, they put the spotlight on your feet with a bold stance, smooth leather and eye-catching cushioning. Made in part with recycled content generated from production waste, e.g. cutting scraps, and post-consumer household waste to avoid the larger environmental impact of producing virgin content. Lace closure. Leather upper. Textile lining. Rubber outsole.",
+      "price": 110,
+      "hasDiscount": true,
+      "discount": 30,
+      "images": "https://images.footlocker.com/is/image/FLEU/314102657104_01"
+    },
+    {
+      "id": 8,
+      "name": "Nike Air Force 1 '07",
+      "description": "Offering bold styling and great comfort, the Nike Air Force 1 ’07 follows the same path as the rest of the iconic Air Force family. Designed originally for basketball, these sneakers combine the best of sporty functionality with classic streetstyle design. Rule the streets with one of the most popular sneakers ever.",
+      "price": 100,
+      "hasDiscount": true,
+      "discount": 20,
+      "images": "https://images.footlocker.com/is/image/FLEU/314101996404_01"
+    },
+    {
+      "id": 9,
+      "name": "Jordan Two-trey",
+      "description": "Let your presence be known every time you grace the scene with the Jordan Jumpman Two Trey. An homage to the on-court styles worn during Michael Jordan’s time in Chicago, these sneakers celebrate champions like you. Made with high-quality leather, the upper provides a cool, hip look, and bring in durability to your strides. The Air technology ensures incredible responsiveness, while the grippy rubber outsole gives you the zeal and confidence to win every game.",
+      "price": 200,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/314103295904_01"
+    },
+    {
+      "id": 10,
+      "name": "adidas Ozweego",
+      "description": "The future doesn't erase the past. It builds off of it. Think of any sci-fi film you've seen. Innovation and technology may reign supreme, but the nostalgia of the past is undeniable. Playing with that idea, these adidas OZWEEGO Shoes fuse retro elements with futuristic design lines. Targeted support in the forefoot and heel makes for a supremely comfortable ride. Regular fit. Lace closure. Mesh upper with suede and TPU overlays. Soft and lightweight. Shoes with a layered upper. Adiprene and Adiprene+ heel and forefoot cushioning.",
+      "price": 80,
+      "hasDiscount": true,
+      "discount": 25,
+      "images": "https://images.footlocker.com/is/image/FLEU/314207917304_01"
+    },
+    {
+      "id": 11,
+      "name": "New Balance 327",
+      "description": "Power your sporty spirit with the heritage-inspired style of the New Balance 327. A classic with a fresh twist, these sneakers take you to an era of innovation. Taking inspiration from the NB gems - 320, 355, and Supercomp, the suede/nylon upper is designed for long lasting breathable ease and durability. Featuring lugs for traction, the wraparound rubber outsole takes your walking comfort to the next level.",
+      "price": 90,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/314208864604_01"
+    },
+    {
+      "id": 12,
+      "name": "Under Armour Curry 1 Sour Patch",
+      "description": "These shoes combine the light, grippy speed of Curry 10's UA Flow cushioning with the custom feel of your favorite Curry One's form-fitting upper. Why? Because this unreal combo puts you a step ahead all game long.",
+      "price": 135,
+      "hasDiscount": false,
+      "discount": null,
+      "images": "https://images.footlocker.com/is/image/FLEU/314102651404_01"
+    }
+  ]
+}
