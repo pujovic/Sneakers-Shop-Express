@@ -90,10 +90,26 @@ a {
   min-width: fit-content;
 }
 .link {
-  padding-bottom: 31px;
+  padding-bottom: 32px;
   margin: 0 5px;
 }
-
+#search-bar {
+  display: flex;
+  margin: 0 1rem;
+  min-width: fit-content;
+}
+.search-input {
+  height: 1.4rem;
+  margin: 0 0.2rem;
+  padding: 0.1rem;
+  width: 9rem;
+  font-size: 0.9rem;
+  border: hsl(220, 7%, 58%) 2px solid;
+  border-radius: 10px;
+}
+#search-button {
+  cursor: pointer;
+}
 #cart {
   position: relative;
   cursor: pointer;
@@ -107,6 +123,7 @@ a {
   color: white;
   font-size: 0.75rem;
 }
+
 #hamburger-menu {
   visibility: hidden;
   position: fixed;
@@ -129,6 +146,22 @@ a {
   padding: 2rem 0 1rem 0.2rem;
   margin: 0;
 }
+.search-bar-ham {
+  width: 100%;
+  height: 1.5rem;
+  display: flex;
+  margin: 1rem auto;
+  justify-content: space-around;
+  align-items: center;
+}
+#search-input-ham {
+  margin: 0 0.2rem;
+  padding: 0.1rem;
+  width: 80%;
+  border: hsl(220, 7%, 58%) 2px solid;
+  border-radius: 10px;
+}
+
 /* --------------- Navbar END ---------------- */
 /* --------------- Index ---------------- */
 #main-index {
@@ -611,15 +644,6 @@ footer {
 }
 /*---------Hover END------------*/
 
-/*------big display adjustments >1080--------*/
-@media screen and (min-width: 1930px) {
-  body {
-    width: 50vw;
-  }
-  #cart-div {
-    right: 23vw;
-  }
-}
 /*------Small display adjustments - mobile--------*/
 @media screen and (max-width: 650px) {
   body {
@@ -638,6 +662,9 @@ footer {
     flex: 100%;
   }
   #links {
+    display: none;
+  }
+  #search-bar {
     display: none;
   }
   #product {
@@ -696,5 +723,20 @@ footer {
   button:active {
     transform: scale(1.1);
     transition: 0.1s;
+  }
+}
+/*------Tablet adjustments--------*/
+@media screen and (min-width: 651px) and (max-width: 1024px) {
+  #navbar {
+    min-width: 90vw;
+  }
+}
+/*------Big display adjustments >1080p--------*/
+@media screen and (min-width: 1920px) {
+  body {
+    width: 50vw;
+  }
+  #cart-div {
+    right: 23vw;
   }
 }

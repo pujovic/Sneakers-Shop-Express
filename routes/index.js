@@ -1,9 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var crypto = require("crypto");
-const { findSourceMap } = require("module");
 const nodeMailer = require("nodemailer");
-const { getMaxListeners } = require("process");
 
 /* GET Home page. */
 router.get("/", function (req, res, next) {
@@ -47,17 +45,17 @@ router.get("/checkout", function (req, res, next) {
   const nonce = csp(res);
   res.render("checkout", { title: "Sneakers Shop - Checkout", nonce: nonce });
 });
-/* GET Single product. */
-router.get("/men/:id", function (req, res, next) {
+/* GET search results. */
+router.get("/search-results", function (req, res, next) {
   // Set the strict nonce-based CSP response header
   const nonce = csp(res);
-  res.render("single-product", {
-    output: req.params.id,
-    title: "Sneakers Shop - Product",
+  res.render("search-results", {
+    title: "Sneakers Shop - Search",
     nonce: nonce,
   });
 });
-router.get("/women/:id", function (req, res, next) {
+/* GET Single product. */
+router.get("/:id", function (req, res, next) {
   // Set the strict nonce-based CSP response header
   const nonce = csp(res);
   res.render("single-product", {

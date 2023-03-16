@@ -6,8 +6,11 @@ var logger = require("morgan");
 var hbs = require("express-handlebars");
 var bodyParser = require("body-parser");
 var indexRouter = require("./routes/index");
+var cors = require("cors");
 
 var app = express();
+
+app.use(cors({ origin: "*" }));
 
 // view engine setup
 app.engine(

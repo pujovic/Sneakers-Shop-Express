@@ -21,6 +21,8 @@ const cartTotalDOM = document.getElementById("cart-total");
 const itemsTotalDOM = document.getElementById("items-total");
 const cartAmountIcon = document.querySelector(".cart-items");
 const checkoutItems = document.getElementById("checkout-items");
+const searchBtn = document.getElementById("search-button");
+const searchBtnHam = document.getElementById("search-button-ham");
 
 const url = document.URL;
 let deleteItemBtn = [];
@@ -219,6 +221,28 @@ class Products {
       throw new Error("Product id error!");
     }
   }
+
+  async searchProducts(searchQuery) {
+    if (!searchQuery.trim() || searchQuery.trim().length < 3) {
+      return;
+    }
+    try {
+      let searchResults = [];
+      const products = await this.getProducts();
+
+      products.forEach((product) => {
+        const productName = product.name.toLowerCase();
+        const searchName = searchQuery.toLowerCase();
+        if (productName.match(searchName)) {
+          searchResults.push(product);
+        }
+      });
+      sessionStorage.setItem("searchResults", JSON.stringify(searchResults));
+      window.location.href = "/search-results";
+    } catch (error) {
+      throw new Error("Product search error!");
+    }
+  }
 }
 
 //class for rendering elements
@@ -235,7 +259,7 @@ class UI {
     products.forEach((product) => {
       let price;
       let discountVis;
-      if (product.tag === tag) {
+      if (product.tag === tag || tag === "search") {
         if (product.hasDiscount) {
           price = (1 - product.discount / 100) * product.price;
           discountVis = "visible";
@@ -247,7 +271,7 @@ class UI {
         }
         result += `
             <div id="product" data-id="${product.id}">
-              <a href="${url + "/" + product.id}">
+              <a href="${"/" + product.id}">
                 <img
                   id="product-image"
                   src=${product.images}?q=10&fit=pad
@@ -507,6 +531,22 @@ if (document.title === "Sneakers Shop - Product") {
   products
     .getSingleProduct(productPageDOM.id)
     .then((product) => ui.displaySingleProduct(product));
+}
+
+//search functionality
+const searchInput = document.querySelector("#search");
+const searchInputHam = document.querySelector("#search-input-ham");
+searchBtn.addEventListener("click", () => {
+  products.searchProducts(searchInput.value);
+});
+searchBtnHam.addEventListener("click", () => {
+  products.searchProducts(searchInputHam.value);
+});
+
+//render search results page
+if (document.title === "Sneakers Shop - Search") {
+  const products = JSON.parse(sessionStorage.getItem("searchResults"));
+  ui.displayProducts(products, "search");
 }
 
 //render cart
