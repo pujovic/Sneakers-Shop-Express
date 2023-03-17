@@ -306,10 +306,11 @@ class UI {
   }
   //render single product page
   displaySingleProduct(entry) {
-    let productPage = "";
-    let images = "";
+    let productPage;
+    let images;
     let price;
     let discountVis;
+    let sizes;
 
     if (!entry) {
       document.querySelector(
@@ -325,6 +326,7 @@ class UI {
       price = entry.price;
       discountVis = "hidden";
     }
+
     productPage = `
             <h3>Sneaker Company</h3>
             <h1 id="product-name">${entry.name}</h1>
@@ -337,7 +339,7 @@ class UI {
             <p id="old-price">$${entry.price}</p>
             
             <p id="size-p">Size:</p>
-            <div id="sizes"></div>
+            <div id="sizes">${sizes}</div>
 
             <div class="button-section">
               <div id="amount-div">
@@ -393,27 +395,24 @@ class UI {
       mainImage.src = event.target.src.slice(0, event.target.src.length - 5);
     });
     //setting sneaker sizes based od gender
-    if (document.URL.includes("women") && document.querySelector("#sizes")) {
+    if (entry.tag === "women") {
       document.querySelector("#sizes").innerHTML = `
-    <p class="size">35</p>
-    <p class="size">36</p>
-    <p class="size">37</p>
-    <p class="size">38</p>
-    <p class="size">39</p>
-    <p class="size">40</p>
-    <p class="size">41</p>`;
-    } else if (
-      document.URL.includes("men") &&
-      document.querySelector("#sizes")
-    ) {
+      <p class="size">35</p>
+      <p class="size">36</p>
+      <p class="size">37</p>
+      <p class="size">38</p>
+      <p class="size">39</p>
+      <p class="size">40</p>
+      <p class="size">41</p>`;
+    } else {
       document.querySelector("#sizes").innerHTML = `
-    <p class="size">40</p>
-    <p class="size">41</p>
-    <p class="size">42</p>
-    <p class="size">43</p>
-    <p class="size">44</p>
-    <p class="size">45</p>
-    <p class="size">46</p>`;
+      <p class="size">40</p>
+      <p class="size">41</p>
+      <p class="size">42</p>
+      <p class="size">43</p>
+      <p class="size">44</p>
+      <p class="size">45</p>
+      <p class="size">46</p>`;
     }
   }
 
