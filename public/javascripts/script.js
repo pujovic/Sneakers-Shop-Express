@@ -135,6 +135,9 @@ if (orderForm) {
       .then(function (data) {
         alert("Your order has been placed!");
         console.log(data);
+        cart = [];
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
       })
       .catch(function (error) {
         console.warn("Something went wrong.", error);
@@ -468,6 +471,7 @@ class UI {
   //render checkout page
   displayCheckout(cart) {
     let subtotal = 0;
+    let shipping = cart.length === 0 ? 0 : 10;
     cart.forEach((cartItem) => {
       subtotal += cartItem.price;
       const div = document.createElement("div");
@@ -503,8 +507,11 @@ class UI {
       "checkout-subtotal"
     ).innerHTML = `<strong>SUBTOTAL: </strong>$${subtotal}`;
     document.getElementById(
+      "checkout-shipping"
+    ).innerHTML = `<strong>SHIPPING: </strong>$${shipping}`;
+    document.getElementById(
       "checkout-total"
-    ).innerHTML = `<strong>TOTAL: </strong>$${subtotal + 10}`;
+    ).innerHTML = `<strong>TOTAL: </strong>$${subtotal + shipping}`;
   }
 }
 
