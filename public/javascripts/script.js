@@ -118,7 +118,11 @@ if (orderForm) {
       phone: checkoutPhone.value,
       message: checkoutMessage.value,
       checkoutTime: checkoutTime,
+      items: cart,
     };
+
+    if (cart.length === 0) return;
+
     fetch("/checkout", {
       method: "POST",
       headers: {
