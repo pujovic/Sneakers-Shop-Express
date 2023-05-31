@@ -58,6 +58,7 @@ hamburgerBtn.onclick = function () {
 
 //contact page submit message
 const contactForm = document.getElementById("form-send-message-contact");
+const contactDialog = document.getElementById("contact-dialog");
 if (contactForm) {
   const timeStamp = new Date(Date.now()).toLocaleString();
   const name = document.getElementById("input-name-contact");
@@ -91,7 +92,7 @@ if (contactForm) {
         return Promise.reject(response);
       })
       .then(function (data) {
-        alert("Your message has been sent!");
+        contactDialog.showModal();
         console.log(data);
       })
       .catch(function (error) {
@@ -102,6 +103,8 @@ if (contactForm) {
 
 //checkout page - place order
 const orderForm = document.getElementById("place-order-form");
+const checkoutDialog = document.getElementById("checkout-dialog");
+const checkoutDialogOkBtn = document.getElementById("checkout-ok");
 if (orderForm) {
   const checkoutTime = new Date(Date.now()).toLocaleString();
   const checkoutFname = document.getElementById("input-fname-checkout");
@@ -137,11 +140,14 @@ if (orderForm) {
         return Promise.reject(response);
       })
       .then(function (data) {
-        alert("Your order has been placed!");
         console.log(data);
         cart = [];
         localStorage.setItem("cart", JSON.stringify(cart));
-        location.reload();
+        checkoutDialog.showModal();
+        checkoutDialogOkBtn.addEventListener("click", (e) => {
+          event.preventDefault();
+          location.reload();
+        });
       })
       .catch(function (error) {
         console.warn("Something went wrong.", error);

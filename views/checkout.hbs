@@ -1,26 +1,58 @@
+<dialog id="checkout-dialog">
+  <form method="dialog">
+    <p>Your order has been placed!</p>
+    <button id="checkout-ok">OK</button>
+  </form>
+</dialog>
 <div id="checkout">
-    <div id="summary">
-        <h2>Order Summary</h2>
-        <p id="checkout-subtotal" class="border-bottom"><strong>SUBTOTAL: 0</strong></p>
-        <p id="checkout-shipping" class="border-bottom"><strong>SHIPPING: </strong>$10</p>
-        <p id="checkout-total"><strong>TOTAL: </strong></p>
-    </div>
-    <div id="checkoutDiv">
-        <h2>Contact information</h2>
-        <form id="place-order-form">
-            <div class="row-checkout">
-                <input type="text" required id="input-fname-checkout" placeholder="First name">
-                <input type="text" required id="input-lname-checkout" placeholder="Last name">
-            </div>
-            <div class="row-checkout">
-                <input type="email" required id="input-email-checkout" placeholder="Email">
-                <input type="text" required id="input-telephone-checkout" placeholder="Phone number">
-            </div>
-            <textarea cols="1" rows="15" maxlength="500" id="input-message-checkout"
-                placeholder="Additional information"></textarea>
-            <button type="submit" id="submit-btn-checkout">PLACE ORDER</button>
-        </form>
-    </div>
+  <div id="summary">
+    <h2>Order Summary</h2>
+    <p id="checkout-subtotal" class="border-bottom"><strong>SUBTOTAL: 0</strong></p>
+    <p id="checkout-shipping" class="border-bottom"><strong>SHIPPING:
+      </strong>$10</p>
+    <p id="checkout-total"><strong>TOTAL: </strong></p>
+  </div>
+  <div id="checkoutDiv">
+    <h2>Contact information</h2>
+    <form id="place-order-form">
+      <div class="row-checkout">
+        <input
+          type="text"
+          required
+          id="input-fname-checkout"
+          placeholder="First name"
+        />
+        <input
+          type="text"
+          required
+          id="input-lname-checkout"
+          placeholder="Last name"
+        />
+      </div>
+      <div class="row-checkout">
+        <input
+          type="email"
+          required
+          id="input-email-checkout"
+          placeholder="Email"
+        />
+        <input
+          type="text"
+          required
+          id="input-telephone-checkout"
+          placeholder="Phone number"
+        />
+      </div>
+      <textarea
+        cols="1"
+        rows="15"
+        maxlength="500"
+        id="input-message-checkout"
+        placeholder="Additional information"
+      ></textarea>
+      <button type="submit" id="submit-btn-checkout">PLACE ORDER</button>
+    </form>
+  </div>
 </div>
 <h1>My cart</h1>
 <div id="checkout-items"></div>

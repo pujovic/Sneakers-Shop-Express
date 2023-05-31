@@ -1,27 +1,56 @@
 <main id="main-contact">
-    <h2>Questions, Concerns, Comments? You talk, we listen.</h2>
-    <h4>If you have any additional questions or comments, we would love to hear from you!
-    <br><br>Submit your query in the form below.</h4>
+  <dialog id="contact-dialog">
+    <form method="dialog">
+      <p>Your message has been sent!</p>
+      <button>OK</button>
+    </form>
+  </dialog>
+  <h2>Questions, Concerns, Comments? You talk, we listen.</h2>
+  <h4>If you have any additional questions or comments, we would love to hear
+    from you!
+    <br /><br />Submit your query in the form below.</h4>
 
-    <div id="contact">
-        <div id="left-contact">
-            <h2>Get in touch</h2>
-            <form id="form-send-message-contact">
-                <div class="row-contact">
-                    <input type="text" required id="input-name-contact" placeholder="Name">
-                    <input type="email" required id="input-email-contact" placeholder="Email">
-                </div>
-                <input type="text" required maxlength="70" id="input-subject-contact" placeholder="Subject">
-                <textarea cols="30" rows="3" required maxlength="2000" id="input-message-contact"
-                    placeholder="Message"></textarea>
-                <button type="submit" id="submit-btn-contact">Send Message</button>
-            </form>
+  <div id="contact">
+    <div id="left-contact">
+      <h2>Get in touch</h2>
+      <form id="form-send-message-contact">
+        <div class="row-contact">
+          <input
+            type="text"
+            required
+            id="input-name-contact"
+            placeholder="Name"
+          />
+          <input
+            type="email"
+            required
+            id="input-email-contact"
+            placeholder="Email"
+          />
         </div>
-        <div id="right-contact">
-            <p><strong>Address:</strong> 123 North Street, New York NY 10016</p>
-            <p><strong>Phone:</strong> + 1234 567 890</p>
-            <p><strong>Email:</strong> info@sneakers.com</p>
-        </div>
+        <input
+          type="text"
+          required
+          maxlength="70"
+          id="input-subject-contact"
+          placeholder="Subject"
+        />
+        <textarea
+          cols="30"
+          rows="3"
+          required
+          maxlength="2000"
+          id="input-message-contact"
+          placeholder="Message"
+        ></textarea>
+        <button type="submit" id="submit-btn-contact">Send Message</button>
+      </form>
     </div>
-    
+    <div id="right-contact">
+      <p><strong>Address:</strong> 123 North Street, New York NY 10016</p>
+      <p><strong>Phone:</strong> + 1234 567 890</p>
+      <p><strong>Email:</strong> info@sneakers.com</p>
+    </div>
+  </div>
+
 </main>

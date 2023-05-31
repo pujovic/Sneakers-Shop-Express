@@ -59,6 +59,20 @@ a {
   text-decoration: none;
   color: var(--mainGrey);
 }
+dialog {
+  padding: 1rem;
+  border: hsl(220, 7%, 58%) 2px solid;
+  border-radius: 10px;
+}
+dialog button {
+  display: block;
+  margin: 0.1rem auto;
+  min-width: 30%;
+  padding: 0.1rem;
+}
+::backdrop {
+  background-color: #000000af;
+}
 
 .top-start {
   margin-top: 0;
