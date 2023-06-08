@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" nonce={{ nonce }} href="../lightbox/lightbox.css" />
+    <link rel="stylesheet" defer nonce={{ nonce }} href="../lightbox/lightbox.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png" />
-    <link rel="stylesheet" nonce={{ nonce }} href="../stylesheets/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link nonce={{ nonce }} href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    <link rel="stylesheet" defer nonce={{ nonce }} href="../stylesheets/styles.css" />
+    <link rel="preconnect" defer href="https://fonts.googleapis.com">
+    <link rel="preconnect" defer href="https://fonts.gstatic.com" crossorigin>
+    <link nonce={{ nonce }} defer <href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <title>{{ title }}</title>
 </head>
@@ -18,8 +18,7 @@
     {{> cartWindow }}
     {{{ body }}}
     {{> footer}}
-    <script nonce={{ nonce }} src="https://cdn.jsdelivr.net/npm/contentful@latest/dist/contentful.browser.min.js"></script>
-    <script nonce={{ nonce }} src="../lightbox/lightbox-plus-jquery.js"></script>
+    <script nonce={{ nonce }} defer src="../lightbox/lightbox-plus-jquery.js"></script>
     <script nonce={{ nonce }} defer src="../javascripts/script.js"></script>
 </body>
 </html>
